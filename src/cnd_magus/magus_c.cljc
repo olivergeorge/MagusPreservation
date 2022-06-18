@@ -64,12 +64,6 @@
     (rand-int x)
     0))
 
-(comment (Rand -6)
-         (Rand 6)
-         (Rand 1)
-         (= 0 (apply min (take 100 (repeatedly #(Rand 6)))))
-         (= 5 (apply max (take 100 (repeatedly #(Rand 6))))))
-
 ;
 ;unsigned short myMouse[37] =
 ;{
