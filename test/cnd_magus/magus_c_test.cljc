@@ -18,8 +18,6 @@
   (is (= 0 (Rand -1)))
   (is (tcct/assert-check (tc/quick-check 100 Rand-range-property))))
 
-;(tcct/defspec Rand-range Rand-range-property)
-
 (comment
   (tc/quick-check 100 Rand-range-property)
   (tcr/result-data (tc/quick-check 100 Rand-range-property))
