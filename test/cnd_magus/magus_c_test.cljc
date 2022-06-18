@@ -20,5 +20,4 @@
 
 (comment
   (tc/quick-check 100 Rand-range-property)
-  (tcr/result-data (tc/quick-check 100 Rand-range-property))
   (clojure.test/run-tests))
