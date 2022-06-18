@@ -54,6 +54,11 @@
 ;	else
 ;		return rand() % x;
 ;}
+
+(defn rand [x]
+      {:pre [(int? x)]}
+      (if (<= x 0)))
+
 ;
 ;unsigned short myMouse[37] =
 ;{
