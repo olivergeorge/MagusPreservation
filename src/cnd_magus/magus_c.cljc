@@ -5744,17 +5744,27 @@
 ;}
 ;
 
-(comment (defn slurp-bytes
-           "Slurp the bytes from a slurpable thing"
-           [x]
-           (with-open [out (java.io.ByteArrayOutputStream.)]
-             (clojure.java.io/copy (clojure.java.io/input-stream x) out)
-             (.toByteArray out)))
-         (slurp (io/file "./magus/WORLD.MGS"))
-         (count (slurp-bytes "./magus/WORLD.MGS"))
-         (* WORLD_Y_MAX WORLD_X_MAX)
-         (partition WORLD_X_MAX (slurp-bytes "./magus/WORLD.MGS"))
-         (partition 2 (first (partition WORLD_X_MAX (slurp-bytes "./magus/WORLD.MGS")))))
+(defn read-u2
+  [in]
+  (bit-or (bit-shift-left (.read in) 8) (.read in)))
+
+(defn slurp-u2
+  [x]
+  (let [in (clojure.java.io/input-stream x)]
+    (take-while nat-int? (repeatedly #(read-u2 in)))))
+
+(defn ReadWorld
+  []
+  (let [data (slurp-u2 "./magus/WORLD.MGS")
+        WorldColumns (partition WORLD_Y_MAX data)
+        [GateX GateY] (take-last 2 data)]
+    (assert (= (count data) (+ 2 (* WORLD_X_MAX WORLD_Y_MAX))))
+    {:WorldColumns WorldColumns
+     :GateX        GateX
+     :GateY        GateY}))
+
+(comment (ReadWorld))
+
 
 ;void ReadWorld( void )
 ;{
