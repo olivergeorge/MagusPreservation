@@ -424,6 +424,9 @@
 ;    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }
 ;};
 
+; TODO: to flag item as undroppable/non-transferable
+(defn x1000 [x] x)
+
 (def rawClassData
   '[["Shaman", 6, 9, 15, 7, 30, 40, 0x59DB, 26, 27, 0, PERSISTENT, [O_ELVENCLOAK, O_STAFF, O_HEALINGSPELL, O_PHANTOMSPELL, O_SPEEDSPELL, 0, 0, 0, 0, 0]],
     ["Wizard", 4, 12, 12, 10, 50, 50, 0x51CB, 23, 31, 0, PERSISTENT, [O_CLOAK, O_DAGGER, O_FIREBALLSPELL, O_TELEPORTSPELL, O_VISIONSPELL, 0, 0, 0, 0, 0]],
@@ -438,23 +441,23 @@
     ["Orch", 4, 15, 0, 13, 60, 0, 0x51CB, 43, 43, 0, 80, [18, 3, 11, 0, 0, 0, 0, 0, 0, 0]],
     ["Orch", 4, 12, 12, 5, 40, 20, 0x51CB, 44, 44, 0, 80, [20, 30, 26, 27, 37, 0, 0, 0, 0, 0]],
     ["ChaosKnight", 4, 22, 0, 16, 100, 0, 0x51CB, 36, 36, 0, 100, [43, 13, 2, 35, 0, 0, 0, 0, 0, 0]],
-    ["Spirit", 5, 50, 15, 15, 40, 10, 0x7FFF, 24, 24, 0, 120, [0x1000 | O_CHAOSSPELL, 0x1000 | O_GHOSTBLADE, 0x1000 | O_SLEEPSPELL, 0, 0, 0, 0, 0, 0, 0]],
-    ["Ghost", 4, 10, 10, 15, 20, 10, 0x7FFF, 33, 33, 0, 100, [0x1000 | O_CONFUSIONSPELL, 0x1000 | O_CHAINANDBALL, 0, 0, 0, 0, 0, 0, 0, 0]],
+    ["Spirit", 5, 50, 15, 15, 40, 10, 0x7FFF, 24, 24, 0, 120, [(x1000 O_CHAOSSPELL), (x1000 O_GHOSTBLADE), (x1000 O_SLEEPSPELL), 0, 0, 0, 0, 0, 0, 0]],
+    ["Ghost", 4, 10, 10, 15, 20, 10, 0x7FFF, 33, 33, 0, 100, [(x1000 O_CONFUSIONSPELL), (x1000 O_CHAINANDBALL), 0, 0, 0, 0, 0, 0, 0, 0]],
     ["DeathKnight", 4, 40, 20, 20, 200, 20, 0x51CB, 37, 37, 0, 170, [42, 3, 13, 10, 20, 35, 75, 0, 0, 0]],
     ["Skeleton", 4, 7, 0, 7, 30, 0, 0x51CB, 32, 32, 0, 0, [O_CHAINANDBALL, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
     ["Zombie", 4, 12, 0, 10, 10, 0, 0x51CB, 20, 20, 0, 0, [O_CUTLASS, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
     ["Djinn", 14, 1, 0, 0, 1, 0, 0x51DF, 18, 18, 8, PERSISTENT, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-    ["Fenix", 5, 10, 19, 17, 40, 5, 0x51C3, 34, 34, 2, PERSISTENT, [0x1000 | O_FIREBLADE, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-    ["Undine", 6, 20, 0, 15, 30, 0, 0x51DF, 29, 29, 6, PERSISTENT, [0x1000 | O_CUTLASS, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-    ["Golem", 3, 60, 0, 10, 80, 0, 0x51CB, 40, 40, 5, PERSISTENT, [0x1000 | O_STONEAXE, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-    ["Demon", 6, 50, 10, 17, 200, 20, 0x7FFF, 39, 39, 9, PERSISTENT, [0x1000 | O_FIREBALLSPELL, 0x1000 | O_FIREBLADE, 0, 0, 0, 0, 0, 0, 0, 0]],
+    ["Fenix", 5, 10, 19, 17, 40, 5, 0x51C3, 34, 34, 2, PERSISTENT, [(x1000 O_FIREBLADE), 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+    ["Undine", 6, 20, 0, 15, 30, 0, 0x51DF, 29, 29, 6, PERSISTENT, [(x1000 O_CUTLASS), 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+    ["Golem", 3, 60, 0, 10, 80, 0, 0x51CB, 40, 40, 5, PERSISTENT, [(x1000 O_STONEAXE), 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+    ["Demon", 6, 50, 10, 17, 200, 20, 0x7FFF, 39, 39, 9, PERSISTENT, [(x1000 O_FIREBALLSPELL), (x1000 O_FIREBLADE), 0, 0, 0, 0, 0, 0, 0, 0]],
     ["Sorcerer", 5, 25, 20, 20, 150, 150, 0x51CB, 41, 41, 0, 120, [O_CHAINMAIL, O_GREENRING, O_FIRESPELL, O_DEMONSPELL, O_ENERGYSPELL, O_SLEEPSPELL, O_LIGHTNINGSPELL, O_TWOHANDEDSWORD, O_NEGATOR, O_FREEZESPELL]],
     ["Hobgoblin", 5, 10, 0, 9, 10, 0, 0x59DB, 115, 115, 0, 10, [7, 4, 4, 41, 0, 0, 0, 0, 0, 0]],
     ["Minotaur", 4, 20, 0, 12, 80, 0, 0x51CB, 109, 109, 0, 100, [17, 45, 42, 0, 0, 0, 0, 0, 0, 0]],
     ["Witchlord", 5, 20, 20, 20, 100, 100, 0x51CB, 118, 118, 0, 140, [O_LIGHTNINGSPELL, O_FIRESPELL, O_SHADOWCLOAK, O_FIREBLADE, O_FIREBALLSPELL, O_CONFUSIONSPELL, O_GREENRING, O_NEGATOR, 0, 0]],
     ["Magician", 4, 12, 10, 10, 50, 30, 0x51CB, 22, 22, 0, 50, [6, 36, 8, 41, 16, 0, 0, 0, 0, 0]],
-    ["Shadowbeast", 5, 20, 0, 10, 200, 0, 0x51DF, 28, 28, 3, PERSISTENT, [0x1000 | O_MACE, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-    ["Lightning", 8, 4, 14, 0, 1, 10, 0x51DF, 21, 21, 1, PERSISTENT, [0x1000 | O_CHOCKHAMMER, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+    ["Shadowbeast", 5, 20, 0, 10, 200, 0, 0x51DF, 28, 28, 3, PERSISTENT, [(x1000 O_MACE), 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+    ["Lightning", 8, 4, 14, 0, 1, 10, 0x51DF, 21, 21, 1, PERSISTENT, [(x1000 O_CHOCKHAMMER), 0, 0, 0, 0, 0, 0, 0, 0, 0]],
     ["Undead", 5, 17, 16, 20, 70, 15, 0x51CB, 38, 38, 0, 100, [20, 27, 45, 17, 15, 26, 0, 0, 0, 0]],
     ["Troll", 3, 20, 0, 7, 100, 0, 0x51CB, 17, 17, 0, 20, [O_STONEAXE, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
     ["Monk", 4, 14, 11, 16, 60, 20, 0x51CB, 125, 125, 0, 60, [12, 38, 25, 24, 78, 23, 0, 0, 0, 0]],
@@ -464,7 +467,7 @@
     ["DemonPrince", 6, 30, 0, 20, 500, 0, 0x51CB, 137, 137, 0, PERSISTENT, [O_GOLDENARMOR, O_BLOODTASTEAXE, O_GOLDENHELMET, O_GOLDENGLOVES, O_CLOAK, O_NEGATOR, O_GREENRING, O_GHOSTBLADE, 0, 0]],
     ["Orch", 4, 13, 0, 10, 50, 0, 0x51CB, 30, 30, 0, 40, [O_BOW, O_ARROWS, 0, 0, 0, 0, 0, 0, 0, 0]],
     ["Guardian", 5, 22, 0, 19, 200, 0, 0x51CB, 155, 155, 0, 200, [O_SILVERBOW, O_ARMOR, O_LARGEHELMET, O_GLOVES, O_FAITHFULARROW, O_TWOHANDEDSWORD, 0, 0, 0, 0]],
-    ["Dragon", 8, 60, 25, 25, 600, 300, 0x51DF, 156, 156, 0, 250, [0x1000 | O_INFERNOSPELL, 0x1000 | O_DRAGONSTOOTH, O_DRAGONSTOOTH, 0x1000 | O_GOLDENARMOR, 0x1000 | O_NEGATOR, 0x1000 | O_GREENRING, 0, 0, 0, 0]],
+    ["Dragon", 8, 60, 25, 25, 600, 300, 0x51DF, 156, 156, 0, 250, [(x1000 O_INFERNOSPELL), (x1000 O_DRAGONSTOOTH), O_DRAGONSTOOTH, (x1000 O_GOLDENARMOR), (x1000 O_NEGATOR), (x1000 O_GREENRING), 0, 0, 0, 0]],
     ["DeathLord", 5, 25, 20, 20, 200, 100, 0x7FFF, 113, 113, 0, 230, [O_LARGEHELMET, O_ARMOR, O_GLOVES, O_LIGHTNINGSPELL, O_SLAYERSWORD, O_DEMONSPELL, 0, 0, 0, 0]],
     ["The Dark One", 7, 80, 25, 25, 500, 1000, 0x7FFF, 105, 105, 0, PERSISTENT, [O_GOLDENARMOR, O_GOLDENHELMET, O_NEGATOR, O_BLOODTASTEAXE, O_ENERGYSPELL, O_GREENRING, O_STORMSPELL, O_DEMONSPELL, O_INFERNOSPELL, O_CHAOSSPELL]],
     ["Small one", 8, 5, 0, 0, 10, 0, 0x59DB, 45, 46, 0, 1200, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]])
@@ -5781,7 +5784,7 @@
 ;  {
 ;    x = Rand( WORLD_X_MAX);
 ;    y = Rand( WORLD_Y_MAX);
-;    if (((gWorld[ x][ y] >> 8) & 31) == 8) /* Tr�golv  stengolv */
+;    if (((gWorld[ x][ y] >> 8) & 31) == 8) /* Hardwood stone floors */
 ;    {
 ;      i = malloc( sizeof( struct item));
 ;      i->id = 1 + Rand( MAXOBJECTS-1);
