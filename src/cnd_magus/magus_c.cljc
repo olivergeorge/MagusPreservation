@@ -266,7 +266,7 @@
 ;  "Legend"
 ;};
 
-(def LevelNames
+(def ^:deprecated LevelNames
   ["Nobody",
    "Amateur",
    "Novice",
@@ -295,7 +295,7 @@
 ;  2000,
 ;  2000
 ;};
-(def LevelLimits
+(def ^:deprecated LevelLimits
   [50
    100
    200
@@ -308,6 +308,20 @@
    1500
    2000
    2000])
+
+(def LevelData
+  [{:level/name "Nobody" :level/limit 50}
+   {:level/name "Amateur" :level/limit 100}
+   {:level/name "Novice" :level/limit 200}
+   {:level/name "Apprentice" :level/limit 300}
+   {:level/name "Trained" :level/limit 400}
+   {:level/name "Good" :level/limit 500}
+   {:level/name "Experienced" :level/limit 700}
+   {:level/name "Expert" :level/limit 900}
+   {:level/name "Elite" :level/limit 1200}
+   {:level/name "Master" :level/limit 1500}
+   {:level/name "ArchMaster" :level/limit 2000}
+   {:level/name "Legend" :level/limit 2000}])
 
 ;
 ;#define PERSISTENT 4711
