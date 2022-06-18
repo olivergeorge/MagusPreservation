@@ -55,9 +55,20 @@
 ;		return rand() % x;
 ;}
 
-(defn rand [x]
-      {:pre [(int? x)]}
-      (if (<= x 0)))
+(defn Rand
+  "Return an integer in the range [0 x).
+   When x is less than 1, return 0."
+  [x]
+  {:pre [(int? x)]}
+  (if (pos? x)
+    (rand-int x)
+    0))
+
+(comment (Rand -6)
+         (Rand 6)
+         (Rand 1)
+         (= 0 (apply min (take 100 (repeatedly #(Rand 6)))))
+         (= 5 (apply max (take 100 (repeatedly #(Rand 6))))))
 
 ;
 ;unsigned short myMouse[37] =
