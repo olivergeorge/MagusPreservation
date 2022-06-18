@@ -1,4 +1,7 @@
-(ns cnd-magus.magus-c)
+(ns cnd-magus.magus-c
+  (:require [clojure.spec.alpha :as s]
+            [cnd-magus.type.class :as-alias class]))
+
 ;/*
 ;---------------------------------------------------------------------
 ;	MAGUS.C
@@ -262,6 +265,21 @@
 ;  "ArchMaster",
 ;  "Legend"
 ;};
+
+(def LevelNames
+  ["Nobody",
+   "Amateur",
+   "Novice",
+   "Apprentice",
+   "Trained",
+   "Good",
+   "Experienced",
+   "Expert",
+   "Elite",
+   "Master",
+   "ArchMaster",
+   "Legend"])
+
 ;
 ;int gLevelLimits[ MAXLEVEL+1] =
 ;{ 50,
