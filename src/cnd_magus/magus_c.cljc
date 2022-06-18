@@ -1,6 +1,6 @@
 (ns cnd-magus.magus-c
   (:require [clojure.spec.alpha :as s]
-            [cnd-magus.type.class :as-alias class]))
+            [clojure.java.io :as io]))
 
 ;/*
 ;---------------------------------------------------------------------
@@ -482,6 +482,8 @@
 ;
 ;#define WORLD_X_MAX 200
 ;#define WORLD_Y_MAX 320
+(def WORLD_X_MAX 200)
+(def WORLD_Y_MAX 320)
 ;
 ;#define SHADOW_FLAG    0x2000
 ;#define ITEM_FLAG      0x4000
@@ -5741,6 +5743,19 @@
 ;  *i = (*i >> 8) | ((*i & 0xFF) << 8);
 ;}
 ;
+
+(comment (defn slurp-bytes
+           "Slurp the bytes from a slurpable thing"
+           [x]
+           (with-open [out (java.io.ByteArrayOutputStream.)]
+             (clojure.java.io/copy (clojure.java.io/input-stream x) out)
+             (.toByteArray out)))
+         (slurp (io/file "./magus/WORLD.MGS"))
+         (count (slurp-bytes "./magus/WORLD.MGS"))
+         (* WORLD_Y_MAX WORLD_X_MAX)
+         (partition WORLD_X_MAX (slurp-bytes "./magus/WORLD.MGS"))
+         (partition 2 (first (partition WORLD_X_MAX (slurp-bytes "./magus/WORLD.MGS")))))
+
 ;void ReadWorld( void )
 ;{
 ;  int f, x, y;
