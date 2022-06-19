@@ -277,6 +277,7 @@
 ;	inventory[ MAXINVENTORY];
 ;};
 
+(s/def :class/id keyword?)
 (s/def :class/name string?)
 (s/def :class/speed int?)
 (s/def :class/strength int?)
@@ -285,8 +286,8 @@
 (s/def :class/health int?)
 (s/def :class/power int?)
 (s/def :class/canWalk int?)
-(s/def :class/maleIcon int?)
-(s/def :class/femaleIcon int?)
+(s/def :class/maleIcon string?)
+(s/def :class/femaleIcon string?)
 (s/def :class/lifeSpan int?)
 (s/def :class/rank int?)
 (s/def :class/inventory coll?)
