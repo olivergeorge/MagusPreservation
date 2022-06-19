@@ -508,6 +508,13 @@
 ;#define CHARACTER_FLAG 0x8000
 ;#define THE_VOID       (102 | (31 << 8))
 ;#define DARKNESS       (103 | (31 << 8) | SHADOW_FLAG)
+
+(def SHADOW_FLAG 0x2000)
+(def ITEM_FLAG 0x4000)
+(def CHARACTER_FLAG 0x8000)
+(def THE_VOID (bit-or 102 (bit-shift-left 31 8)))
+(def DARKNESS (bit-or 103 (bit-shift-left 31 8) SHADOW_FLAG))
+
 ;
 ;typedef short WorldColumn[ WORLD_Y_MAX];
 ;
