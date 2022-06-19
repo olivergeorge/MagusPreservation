@@ -1175,11 +1175,59 @@
 ;	slayer;
 ;  struct character *opponent, *next;
 ;};
+
+(s/def :character/name string?)
+(s/def :character/class any?)
+(s/def :character/x any?)
+(s/def :character/y any?)
+(s/def :character/strength any?)
+(s/def :character/wisdom any?)
+(s/def :character/skill any?)
+(s/def :character/health any?)
+(s/def :character/power any?)
+(s/def :character/maxHealth any?)
+(s/def :character/maxPower any?)
+(s/def :character/canWalk any?)
+(s/def :character/xp any?)
+(s/def :character/level any?)
+(s/def :character/wearing any?)
+(s/def :character/wielding any?)
+(s/def :character/carrying any?)
+(s/def :character/lifeSpan any?)
+(s/def :character/backGround any?)
+(s/def :character/icon any?)
+(s/def :character/speed any?)
+(s/def :character/moves any?)
+(s/def :character/killerClass any?)
+(s/def :character/damageBonus any?)
+(s/def :character/ward any?)
+(s/def :character/confused any?)
+(s/def :character/isPlayer any?)
+(s/def :character/isFleeing any?)
+(s/def :character/isNasty any?)
+(s/def :character/isTracker any?)
+(s/def :character/isFooled any?)
+(s/def :character/gifts any?)
+(s/def :character/slayer any?)
+(s/def :character/opponents any?)
+
+
+
 ;
 ;typedef struct character Person;
+
+(s/def ::person ::character)
+
 ;
 ;Person *gCharacters, *gPC;
 ;Person *gDarkMaster, *gLastDrawn;
+
+
+(s/def :game/characters (s/coll-of ::person))
+(s/def :game/dark-master ::person)
+(s/def :game/last-drawn ::person)
+
+
 ;
 ;void AddCharacter( Person *pc )
 ;{
@@ -1248,6 +1296,14 @@
 ;    p = p->next;
 ;  return p;
 ;}
+
+(defn FindCharacter
+  [gCharacters x y]
+  (let [x-match? (comp #{x} :character/x)
+        y-match? (comp #{y} :character/y)
+        healthy? (comp pos? :character/health)]
+    (first (filter (every-pred x-match? y-match? healthy?) gCharacters))))
+
 ;
 ;void AddItemToList( struct item *i, struct item **list )
 ;{
