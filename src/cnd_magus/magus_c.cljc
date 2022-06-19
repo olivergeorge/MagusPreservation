@@ -1,7 +1,9 @@
 (ns cnd-magus.magus-c
   (:require [clojure.spec.alpha :as s]
             [clojure.java.io :as io]
-            [cnd-magus.items-h :refer :all]))
+            [cnd-magus.items-h :refer :all]
+            [cnd-magus.mapmake-c :refer :all]
+            [clojure.string :as string]))
 
 ;/*
 ;---------------------------------------------------------------------
@@ -50,6 +52,31 @@
 ;    fclose( f);
 ;  }
 ;}
+
+(defn as-binary-string
+  "Generate string showing 16-bit value"
+  [n]
+  (->> (iterate (fn [n] (bit-shift-right n 1)) n)
+       (take 16)
+       (map #(bit-and % 1))
+       (reverse)
+       (partition 4)
+       (map string/join)
+       (string/join " ")))
+
+(comment (use '[clojure.pprint :as pprint])
+         (as-binary-string 0x0001)
+         (as-binary-string (:class/canWalk wizard))
+         (as-binary-string (:class/canWalk shaman))
+         (->> (update-vals ClassData (fn [m] (assoc m :c (as-binary-string (:class/canWalk m)))))
+              (sort-by :c)
+              (pprint/print-table [:c :class/id]))
+         (as-> (update-vals ClassData (fn [m] (assoc m :c (as-binary-string (:class/canWalk m)))))
+               data
+               (group-by :c data)
+               (update-vals data #(map :class/id %))
+               (pprint data)))
+
 ;
 ;static int Rand( int x )
 ;{
