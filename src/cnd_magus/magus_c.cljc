@@ -1971,6 +1971,14 @@
 ;#define BOARDTOP		  0
 ;#define ICONWIDTH		 24
 ;#define ICONHEIGHT		 21
+
+(def BOARDSIZE 19)
+(def BOARDCENTER 9)
+(def BOARDLEFT 160)
+(def BOARDTOP 0)
+(def ICONWIDTH 24)
+(def ICONHEIGHT 21)
+
 ;
 ;typedef short Board[ BOARDSIZE][ BOARDSIZE];
 ;Board gBuffer, gPreviousBuffer;
