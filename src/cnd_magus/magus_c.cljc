@@ -442,61 +442,645 @@
 ;    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } }
 ;};
 
-(defn undroppable [o]
-  (bit-or 0x1000 o))
-
-(def rawClassData
-  [["Shaman" 6 9 15 7 30 40 0x59DB 26 27 0 PERSISTENT [O_ELVENCLOAK O_STAFF O_HEALINGSPELL O_PHANTOMSPELL O_SPEEDSPELL]]
-   ["Wizard" 4 12 12 10 50 50 0x51CB 23 31 0 PERSISTENT [O_CLOAK O_DAGGER O_FIREBALLSPELL O_TELEPORTSPELL O_VISIONSPELL]]
-   ["Elf" 6 14 0 15 90 0 0x59DB 116 117 0 PERSISTENT [60 4 5 16]]
-   ["Barbarian" 4 17 0 15 120 0 0x51CB 19 35 0 PERSISTENT [45 17 5 16]]
-   ["Knight" 4 24 0 11 90 0 0x51CB 25 47 0 PERSISTENT [1 18 11 10]]
-   ["Duck" 5 14 0 17 100 0 0x51DF 108 108 0 PERSISTENT [O_MACE O_LEATHER O_GLOVES O_BOW O_ARROWS]]
-   ["Dwarf" 4 20 0 12 120 0 0x51CB 126 174 0 PERSISTENT [3 17 35]]
-   ["Druid" 4 14 10 10 80 20 0x51CB 127 175 0 PERSISTENT [O_CLOAK O_MACE O_FIRESPELL O_AIRSPELL O_WATERSPELL O_EARTHSPELL]]
-   ["Duck mage" 5 10 12 9 40 60 0x51DF 141 141 0 PERSISTENT [O_CLOAK O_DAGGER O_CONFUSIONSPELL O_CHAOSSPELL O_FREEZESPELL]]
-   ["Orch" 4 14 0 9 50 0 0x51CB 42 42 0 40 [12 37]]
-   ["Orch" 4 15 0 13 60 0 0x51CB 43 43 0 80 [18 3 11]]
-   ["Orch" 4 12 12 5 40 20 0x51CB 44 44 0 80 [20 30 26 27 37]]
-   ["ChaosKnight" 4 22 0 16 100 0 0x51CB 36 36 0 100 [43 13 2 35]]
-   ["Spirit" 5 50 15 15 40 10 0x7FFF 24 24 0 120 [(undroppable O_CHAOSSPELL) (undroppable O_GHOSTBLADE) (undroppable O_SLEEPSPELL)]]
-   ["Ghost" 4 10 10 15 20 10 0x7FFF 33 33 0 100 [(undroppable O_CONFUSIONSPELL) (undroppable O_CHAINANDBALL)]]
-   ["DeathKnight" 4 40 20 20 200 20 0x51CB 37 37 0 170 [42 3 13 10 20 35 75]]
-   ["Skeleton" 4 7 0 7 30 0 0x51CB 32 32 0 0 [O_CHAINANDBALL]]
-   ["Zombie" 4 12 0 10 10 0 0x51CB 20 20 0 0 [O_CUTLASS]]
-   ["Djinn" 14 1 0 0 1 0 0x51DF 18 18 8 PERSISTENT []]
-   ["Fenix" 5 10 19 17 40 5 0x51C3 34 34 2 PERSISTENT [(undroppable O_FIREBLADE)]]
-   ["Undine" 6 20 0 15 30 0 0x51DF 29 29 6 PERSISTENT [(undroppable O_CUTLASS)]]
-   ["Golem" 3 60 0 10 80 0 0x51CB 40 40 5 PERSISTENT [(undroppable O_STONEAXE)]]
-   ["Demon" 6 50 10 17 200 20 0x7FFF 39 39 9 PERSISTENT [(undroppable O_FIREBALLSPELL) (undroppable O_FIREBLADE)]]
-   ["Sorcerer" 5 25 20 20 150 150 0x51CB 41 41 0 120 [O_CHAINMAIL O_GREENRING O_FIRESPELL O_DEMONSPELL O_ENERGYSPELL O_SLEEPSPELL O_LIGHTNINGSPELL O_TWOHANDEDSWORD O_NEGATOR O_FREEZESPELL]]
-   ["Hobgoblin" 5 10 0 9 10 0 0x59DB 115 115 0 10 [7 4 4 41]]
-   ["Minotaur" 4 20 0 12 80 0 0x51CB 109 109 0 100 [17 45 42]]
-   ["Witchlord" 5 20 20 20 100 100 0x51CB 118 118 0 140 [O_LIGHTNINGSPELL O_FIRESPELL O_SHADOWCLOAK O_FIREBLADE O_FIREBALLSPELL O_CONFUSIONSPELL O_GREENRING O_NEGATOR]]
-   ["Magician" 4 12 10 10 50 30 0x51CB 22 22 0 50 [6 36 8 41 16]]
-   ["Shadowbeast" 5 20 0 10 200 0 0x51DF 28 28 3 PERSISTENT [(undroppable O_MACE)]]
-   ["Lightning" 8 4 14 0 1 10 0x51DF 21 21 1 PERSISTENT [(undroppable O_CHOCKHAMMER)]]
-   ["Undead" 5 17 16 20 70 15 0x51CB 38 38 0 100 [20 27 45 17 15 26]]
-   ["Troll" 3 20 0 7 100 0 0x51CB 17 17 0 20 [O_STONEAXE]]
-   ["Monk" 4 14 11 16 60 20 0x51CB 125 125 0 60 [12 38 25 24 78 23]]
-   ["Goblin" 4 8 0 14 30 0 0x51CB 128 128 0 10 [O_SWORD O_LEATHER]]
-   ["Warrior" 4 12 0 14 80 0 0x51CB 135 135 0 60 [O_MACE O_CHAINMAIL 7 7 7]]
-   ["ChaosWarrior" 4 30 0 19 300 0 0x51CB 136 136 0 200 [O_LARGEHELMET O_TWOHANDEDSWORD O_GLOVES O_ARMOR O_CLOAK]]
-   ["DemonPrince" 6 30 0 20 500 0 0x51CB 137 137 0 PERSISTENT [O_GOLDENARMOR O_BLOODTASTEAXE O_GOLDENHELMET O_GOLDENGLOVES O_CLOAK O_NEGATOR O_GREENRING O_GHOSTBLADE]]
-   ["Orch" 4 13 0 10 50 0 0x51CB 30 30 0 40 [O_BOW O_ARROWS]]
-   ["Guardian" 5 22 0 19 200 0 0x51CB 155 155 0 200 [O_SILVERBOW O_ARMOR O_LARGEHELMET O_GLOVES O_FAITHFULARROW O_TWOHANDEDSWORD]]
-   ["Dragon" 8 60 25 25 600 300 0x51DF 156 156 0 250 [(undroppable O_INFERNOSPELL) (undroppable O_DRAGONSTOOTH) O_DRAGONSTOOTH (undroppable O_GOLDENARMOR) (undroppable O_NEGATOR) (undroppable O_GREENRING)]]
-   ["DeathLord" 5 25 20 20 200 100 0x7FFF 113 113 0 230 [O_LARGEHELMET O_ARMOR O_GLOVES O_LIGHTNINGSPELL O_SLAYERSWORD O_DEMONSPELL]]
-   ["The Dark One" 7 80 25 25 500 1000 0x7FFF 105 105 0 PERSISTENT [O_GOLDENARMOR O_GOLDENHELMET O_NEGATOR O_BLOODTASTEAXE O_ENERGYSPELL O_GREENRING O_STORMSPELL O_DEMONSPELL O_INFERNOSPELL O_CHAOSSPELL]]
-   ["Small one" 8 5 0 0 10 0 0x59DB 45 46 0 1200 []]])
-
-(defn make-class-data
-  [[name speed strength wisdom skill health power canWalk maleIcon femaleIcon lifeSpan rank inventory]]
-  (zipmap [:class/name :class/speed :class/strength :class/wisdom :class/skill :class/health :class/power
-           :class/canWalk :class/maleIcon :class/femaleIcon :class/lifeSpan :class/rank :class/inventory]
-          [name speed strength wisdom skill health power canWalk maleIcon femaleIcon lifeSpan rank inventory]))
-
-(def ClassData (map make-class-data rawClassData))
+(def ClassData
+  [{:class/name       "Shaman"
+    :class/speed      6
+    :class/strength   9
+    :class/wisdom     15
+    :class/skill      7
+    :class/health     30
+    :class/power      40
+    :class/canWalk    0x59DB
+    :class/maleIcon   26
+    :class/femaleIcon 27
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_ELVENCLOAK}
+                       {:inventory/code O_STAFF}
+                       {:inventory/code O_HEALINGSPELL}
+                       {:inventory/code O_PHANTOMSPELL}
+                       {:inventory/code O_SPEEDSPELL}]}
+   {:class/name       "Wizard"
+    :class/speed      4
+    :class/strength   12
+    :class/wisdom     12
+    :class/skill      10
+    :class/health     50
+    :class/power      50
+    :class/canWalk    0x51CB
+    :class/maleIcon   23
+    :class/femaleIcon 31
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_CLOAK}
+                       {:inventory/code O_DAGGER}
+                       {:inventory/code O_FIREBALLSPELL}
+                       {:inventory/code O_TELEPORTSPELL}
+                       {:inventory/code O_VISIONSPELL}]}
+   {:class/name       "Elf"
+    :class/speed      6
+    :class/strength   14
+    :class/wisdom     0
+    :class/skill      15
+    :class/health     90
+    :class/power      0
+    :class/canWalk    0x59DB
+    :class/maleIcon   116
+    :class/femaleIcon 117
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [60 4 5 16]}
+   {:class/name       "Barbarian"
+    :class/speed      4
+    :class/strength   17
+    :class/wisdom     0
+    :class/skill      15
+    :class/health     120
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   19
+    :class/femaleIcon 35
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [45 17 5 16]}
+   {:class/name       "Knight"
+    :class/speed      4
+    :class/strength   24
+    :class/wisdom     0
+    :class/skill      11
+    :class/health     90
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   25
+    :class/femaleIcon 47
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [1 18 11 10]}
+   {:class/name       "Duck"
+    :class/speed      5
+    :class/strength   14
+    :class/wisdom     0
+    :class/skill      17
+    :class/health     100
+    :class/power      0
+    :class/canWalk    0x51DF
+    :class/maleIcon   108
+    :class/femaleIcon 108
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_MACE}
+                       {:inventory/code O_LEATHER}
+                       {:inventory/code O_GLOVES}
+                       {:inventory/code O_BOW}
+                       {:inventory/code O_ARROWS}]}
+   {:class/name       "Dwarf"
+    :class/speed      4
+    :class/strength   20
+    :class/wisdom     0
+    :class/skill      12
+    :class/health     120
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   126
+    :class/femaleIcon 174
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [3 17 35]}
+   {:class/name       "Druid"
+    :class/speed      4
+    :class/strength   14
+    :class/wisdom     10
+    :class/skill      10
+    :class/health     80
+    :class/power      20
+    :class/canWalk    0x51CB
+    :class/maleIcon   127
+    :class/femaleIcon 175
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_CLOAK}
+                       {:inventory/code O_MACE}
+                       {:inventory/code O_FIRESPELL}
+                       {:inventory/code O_AIRSPELL}
+                       {:inventory/code O_WATERSPELL}
+                       {:inventory/code O_EARTHSPELL}]}
+   {:class/name       "Duck mage"
+    :class/speed      5
+    :class/strength   10
+    :class/wisdom     12
+    :class/skill      9
+    :class/health     40
+    :class/power      60
+    :class/canWalk    0x51DF
+    :class/maleIcon   141
+    :class/femaleIcon 141
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_CLOAK}
+                       {:inventory/code O_DAGGER}
+                       {:inventory/code O_CONFUSIONSPELL}
+                       {:inventory/code O_CHAOSSPELL}
+                       {:inventory/code O_FREEZESPELL}]}
+   {:class/name       "Orch"
+    :class/speed      4
+    :class/strength   14
+    :class/wisdom     0
+    :class/skill      9
+    :class/health     50
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   42
+    :class/femaleIcon 42
+    :class/lifeSpan   0
+    :class/rank       40
+    :class/inventory  [12 37]}
+   {:class/name       "Orch"
+    :class/speed      4
+    :class/strength   15
+    :class/wisdom     0
+    :class/skill      13
+    :class/health     60
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   43
+    :class/femaleIcon 43
+    :class/lifeSpan   0
+    :class/rank       80
+    :class/inventory  [18 3 11]}
+   {:class/name       "Orch"
+    :class/speed      4
+    :class/strength   12
+    :class/wisdom     12
+    :class/skill      5
+    :class/health     40
+    :class/power      20
+    :class/canWalk    0x51CB
+    :class/maleIcon   44
+    :class/femaleIcon 44
+    :class/lifeSpan   0
+    :class/rank       80
+    :class/inventory  [20 30 26 27 37]}
+   {:class/name       "ChaosKnight"
+    :class/speed      4
+    :class/strength   22
+    :class/wisdom     0
+    :class/skill      16
+    :class/health     100
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   36
+    :class/femaleIcon 36
+    :class/lifeSpan   0
+    :class/rank       100
+    :class/inventory  [43 13 2 35]}
+   {:class/name       "Spirit"
+    :class/speed      5
+    :class/strength   50
+    :class/wisdom     15
+    :class/skill      15
+    :class/health     40
+    :class/power      10
+    :class/canWalk    0x7FFF
+    :class/maleIcon   24
+    :class/femaleIcon 24
+    :class/lifeSpan   0
+    :class/rank       120
+    :class/inventory  [{:inventory/code O_CHAOSSPELL :inventory/droppable? true}
+                       {:inventory/code O_GHOSTBLADE :inventory/droppable? true}
+                       {:inventory/code O_SLEEPSPELL :inventory/droppable? true}]}
+   {:class/name       "Ghost"
+    :class/speed      4
+    :class/strength   10
+    :class/wisdom     10
+    :class/skill      15
+    :class/health     20
+    :class/power      10
+    :class/canWalk    0x7FFF
+    :class/maleIcon   33
+    :class/femaleIcon 33
+    :class/lifeSpan   0
+    :class/rank       100
+    :class/inventory  [{:inventory/code O_CONFUSIONSPELL :inventory/droppable? true}
+                       {:inventory/code O_CHAINANDBALL :inventory/droppable? true}]}
+   {:class/name       "DeathKnight"
+    :class/speed      4
+    :class/strength   40
+    :class/wisdom     20
+    :class/skill      20
+    :class/health     200
+    :class/power      20
+    :class/canWalk    0x51CB
+    :class/maleIcon   37
+    :class/femaleIcon 37
+    :class/lifeSpan   0
+    :class/rank       170
+    :class/inventory  [42 3 13 10 20 35 75]}
+   {:class/name       "Skeleton"
+    :class/speed      4
+    :class/strength   7
+    :class/wisdom     0
+    :class/skill      7
+    :class/health     30
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   32
+    :class/femaleIcon 32
+    :class/lifeSpan   0
+    :class/rank       0
+    :class/inventory  [{:inventory/code O_CHAINANDBALL}]}
+   {:class/name       "Zombie"
+    :class/speed      4
+    :class/strength   12
+    :class/wisdom     0
+    :class/skill      10
+    :class/health     10
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   20
+    :class/femaleIcon 20
+    :class/lifeSpan   0
+    :class/rank       0
+    :class/inventory  [{:inventory/code O_CUTLASS}]}
+   {:class/name       "Djinn"
+    :class/speed      14
+    :class/strength   1
+    :class/wisdom     0
+    :class/skill      0
+    :class/health     1
+    :class/power      0
+    :class/canWalk    0x51DF
+    :class/maleIcon   18
+    :class/femaleIcon 18
+    :class/lifeSpan   8
+    :class/rank       PERSISTENT
+    :class/inventory  []}
+   {:class/name       "Fenix"
+    :class/speed      5
+    :class/strength   10
+    :class/wisdom     19
+    :class/skill      17
+    :class/health     40
+    :class/power      5
+    :class/canWalk    0x51C3
+    :class/maleIcon   34
+    :class/femaleIcon 34
+    :class/lifeSpan   2
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_FIREBLADE :inventory/droppable? true}]}
+   {:class/name       "Undine"
+    :class/speed      6
+    :class/strength   20
+    :class/wisdom     0
+    :class/skill      15
+    :class/health     30
+    :class/power      0
+    :class/canWalk    0x51DF
+    :class/maleIcon   29
+    :class/femaleIcon 29
+    :class/lifeSpan   6
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_CUTLASS :inventory/droppable? true}]}
+   {:class/name       "Golem"
+    :class/speed      3
+    :class/strength   60
+    :class/wisdom     0
+    :class/skill      10
+    :class/health     80
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   40
+    :class/femaleIcon 40
+    :class/lifeSpan   5
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_STONEAXE :inventory/droppable? true}]}
+   {:class/name       "Demon"
+    :class/speed      6
+    :class/strength   50
+    :class/wisdom     10
+    :class/skill      17
+    :class/health     200
+    :class/power      20
+    :class/canWalk    0x7FFF
+    :class/maleIcon   39
+    :class/femaleIcon 39
+    :class/lifeSpan   9
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_FIREBALLSPELL :inventory/droppable? true}
+                       {:inventory/code O_FIREBLADE :inventory/droppable? true}]}
+   {:class/name       "Sorcerer"
+    :class/speed      5
+    :class/strength   25
+    :class/wisdom     20
+    :class/skill      20
+    :class/health     150
+    :class/power      150
+    :class/canWalk    0x51CB
+    :class/maleIcon   41
+    :class/femaleIcon 41
+    :class/lifeSpan   0
+    :class/rank       120
+    :class/inventory  [{:inventory/code O_CHAINMAIL}
+                       {:inventory/code O_GREENRING}
+                       {:inventory/code O_FIRESPELL}
+                       {:inventory/code O_DEMONSPELL}
+                       {:inventory/code O_ENERGYSPELL}
+                       {:inventory/code O_SLEEPSPELL}
+                       {:inventory/code O_LIGHTNINGSPELL}
+                       {:inventory/code O_TWOHANDEDSWORD}
+                       {:inventory/code O_NEGATOR}
+                       {:inventory/code O_FREEZESPELL}]}
+   {:class/name       "Hobgoblin"
+    :class/speed      5
+    :class/strength   10
+    :class/wisdom     0
+    :class/skill      9
+    :class/health     10
+    :class/power      0
+    :class/canWalk    0x59DB
+    :class/maleIcon   115
+    :class/femaleIcon 115
+    :class/lifeSpan   0
+    :class/rank       10
+    :class/inventory  [7 4 4 41]}
+   {:class/name       "Minotaur"
+    :class/speed      4
+    :class/strength   20
+    :class/wisdom     0
+    :class/skill      12
+    :class/health     80
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   109
+    :class/femaleIcon 109
+    :class/lifeSpan   0
+    :class/rank       100
+    :class/inventory  [17 45 42]}
+   {:class/name       "Witchlord"
+    :class/speed      5
+    :class/strength   20
+    :class/wisdom     20
+    :class/skill      20
+    :class/health     100
+    :class/power      100
+    :class/canWalk    0x51CB
+    :class/maleIcon   118
+    :class/femaleIcon 118
+    :class/lifeSpan   0
+    :class/rank       140
+    :class/inventory  [{:inventory/code O_LIGHTNINGSPELL}
+                       {:inventory/code O_FIRESPELL}
+                       {:inventory/code O_SHADOWCLOAK}
+                       {:inventory/code O_FIREBLADE}
+                       {:inventory/code O_FIREBALLSPELL}
+                       {:inventory/code O_CONFUSIONSPELL}
+                       {:inventory/code O_GREENRING}
+                       {:inventory/code O_NEGATOR}]}
+   {:class/name       "Magician"
+    :class/speed      4
+    :class/strength   12
+    :class/wisdom     10
+    :class/skill      10
+    :class/health     50
+    :class/power      30
+    :class/canWalk    0x51CB
+    :class/maleIcon   22
+    :class/femaleIcon 22
+    :class/lifeSpan   0
+    :class/rank       50
+    :class/inventory  [6 36 8 41 16]}
+   {:class/name       "Shadowbeast"
+    :class/speed      5
+    :class/strength   20
+    :class/wisdom     0
+    :class/skill      10
+    :class/health     200
+    :class/power      0
+    :class/canWalk    0x51DF
+    :class/maleIcon   28
+    :class/femaleIcon 28
+    :class/lifeSpan   3
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_MACE :inventory/droppable? true}]}
+   {:class/name       "Lightning"
+    :class/speed      8
+    :class/strength   4
+    :class/wisdom     14
+    :class/skill      0
+    :class/health     1
+    :class/power      10
+    :class/canWalk    0x51DF
+    :class/maleIcon   21
+    :class/femaleIcon 21
+    :class/lifeSpan   1
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_CHOCKHAMMER :inventory/droppable? true}]}
+   {:class/name       "Undead"
+    :class/speed      5
+    :class/strength   17
+    :class/wisdom     16
+    :class/skill      20
+    :class/health     70
+    :class/power      15
+    :class/canWalk    0x51CB
+    :class/maleIcon   38
+    :class/femaleIcon 38
+    :class/lifeSpan   0
+    :class/rank       100
+    :class/inventory  [20 27 45 17 15 26]}
+   {:class/name       "Troll"
+    :class/speed      3
+    :class/strength   20
+    :class/wisdom     0
+    :class/skill      7
+    :class/health     100
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   17
+    :class/femaleIcon 17
+    :class/lifeSpan   0
+    :class/rank       20
+    :class/inventory  [{:inventory/code O_STONEAXE}]}
+   {:class/name       "Monk"
+    :class/speed      4
+    :class/strength   14
+    :class/wisdom     11
+    :class/skill      16
+    :class/health     60
+    :class/power      20
+    :class/canWalk    0x51CB
+    :class/maleIcon   125
+    :class/femaleIcon 125
+    :class/lifeSpan   0
+    :class/rank       60
+    :class/inventory  [12 38 25 24 78 23]}
+   {:class/name       "Goblin"
+    :class/speed      4
+    :class/strength   8
+    :class/wisdom     0
+    :class/skill      14
+    :class/health     30
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   128
+    :class/femaleIcon 128
+    :class/lifeSpan   0
+    :class/rank       10
+    :class/inventory  [{:inventory/code O_SWORD}
+                       {:inventory/code O_LEATHER}]}
+   {:class/name       "Warrior"
+    :class/speed      4
+    :class/strength   12
+    :class/wisdom     0
+    :class/skill      14
+    :class/health     80
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   135
+    :class/femaleIcon 135
+    :class/lifeSpan   0
+    :class/rank       60
+    :class/inventory  [{:inventory/code O_MACE}
+                       {:inventory/code O_CHAINMAIL} 7 7 7]}
+   {:class/name       "ChaosWarrior"
+    :class/speed      4
+    :class/strength   30
+    :class/wisdom     0
+    :class/skill      19
+    :class/health     300
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   136
+    :class/femaleIcon 136
+    :class/lifeSpan   0
+    :class/rank       200
+    :class/inventory  [{:inventory/code O_LARGEHELMET}
+                       {:inventory/code O_TWOHANDEDSWORD}
+                       {:inventory/code O_GLOVES}
+                       {:inventory/code O_ARMOR}
+                       {:inventory/code O_CLOAK}]}
+   {:class/name       "DemonPrince"
+    :class/speed      6
+    :class/strength   30
+    :class/wisdom     0
+    :class/skill      20
+    :class/health     500
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   137
+    :class/femaleIcon 137
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_GOLDENARMOR}
+                       {:inventory/code O_BLOODTASTEAXE}
+                       {:inventory/code O_GOLDENHELMET}
+                       {:inventory/code O_GOLDENGLOVES}
+                       {:inventory/code O_CLOAK}
+                       {:inventory/code O_NEGATOR}
+                       {:inventory/code O_GREENRING}
+                       {:inventory/code O_GHOSTBLADE}]}
+   {:class/name       "Orch"
+    :class/speed      4
+    :class/strength   13
+    :class/wisdom     0
+    :class/skill      10
+    :class/health     50
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   30
+    :class/femaleIcon 30
+    :class/lifeSpan   0
+    :class/rank       40
+    :class/inventory  [{:inventory/code O_BOW}
+                       {:inventory/code O_ARROWS}]}
+   {:class/name       "Guardian"
+    :class/speed      5
+    :class/strength   22
+    :class/wisdom     0
+    :class/skill      19
+    :class/health     200
+    :class/power      0
+    :class/canWalk    0x51CB
+    :class/maleIcon   155
+    :class/femaleIcon 155
+    :class/lifeSpan   0
+    :class/rank       200
+    :class/inventory  [{:inventory/code O_SILVERBOW}
+                       {:inventory/code O_ARMOR}
+                       {:inventory/code O_LARGEHELMET}
+                       {:inventory/code O_GLOVES}
+                       {:inventory/code O_FAITHFULARROW}
+                       {:inventory/code O_TWOHANDEDSWORD}]}
+   {:class/name       "Dragon"
+    :class/speed      8
+    :class/strength   60
+    :class/wisdom     25
+    :class/skill      25
+    :class/health     600
+    :class/power      300
+    :class/canWalk    0x51DF
+    :class/maleIcon   156
+    :class/femaleIcon 156
+    :class/lifeSpan   0
+    :class/rank       250
+    :class/inventory  [{:inventory/code O_INFERNOSPELL :inventory/droppable? true}
+                       {:inventory/code O_DRAGONSTOOTH :inventory/droppable? true}
+                       {:inventory/code O_DRAGONSTOOTH}
+                       {:inventory/code O_GOLDENARMOR :inventory/droppable? true}
+                       {:inventory/code O_NEGATOR :inventory/droppable? true}
+                       {:inventory/code O_GREENRING :inventory/droppable? true}]}
+   {:class/name       "DeathLord"
+    :class/speed      5
+    :class/strength   25
+    :class/wisdom     20
+    :class/skill      20
+    :class/health     200
+    :class/power      100
+    :class/canWalk    0x7FFF
+    :class/maleIcon   113
+    :class/femaleIcon 113
+    :class/lifeSpan   0
+    :class/rank       230
+    :class/inventory  [{:inventory/code O_LARGEHELMET}
+                       {:inventory/code O_ARMOR}
+                       {:inventory/code O_GLOVES}
+                       {:inventory/code O_LIGHTNINGSPELL}
+                       {:inventory/code O_SLAYERSWORD}
+                       {:inventory/code O_DEMONSPELL}]}
+   {:class/name       "The Dark One"
+    :class/speed      7
+    :class/strength   80
+    :class/wisdom     25
+    :class/skill      25
+    :class/health     500
+    :class/power      1000
+    :class/canWalk    0x7FFF
+    :class/maleIcon   105
+    :class/femaleIcon 105
+    :class/lifeSpan   0
+    :class/rank       PERSISTENT
+    :class/inventory  [{:inventory/code O_GOLDENARMOR}
+                       {:inventory/code O_GOLDENHELMET}
+                       {:inventory/code O_NEGATOR}
+                       {:inventory/code O_BLOODTASTEAXE}
+                       {:inventory/code O_ENERGYSPELL}
+                       {:inventory/code O_GREENRING}
+                       {:inventory/code O_STORMSPELL}
+                       {:inventory/code O_DEMONSPELL}
+                       {:inventory/code O_INFERNOSPELL}
+                       {:inventory/code O_CHAOSSPELL}]}
+   {:class/name       "Small one"
+    :class/speed      8
+    :class/strength   5
+    :class/wisdom     0
+    :class/skill      0
+    :class/health     10
+    :class/power      0
+    :class/canWalk    0x59DB
+    :class/maleIcon   45
+    :class/femaleIcon 46
+    :class/lifeSpan   0
+    :class/rank       1200
+    :class/inventory  []}])
 
 ;
 ;/*
