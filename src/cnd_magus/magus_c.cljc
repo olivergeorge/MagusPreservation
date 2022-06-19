@@ -471,7 +471,8 @@
 ;};
 
 (def ClassData
-  [{:class/name       "Shaman"
+  [{:class/id         :SHAMAN
+    :class/name       "Shaman"
     :class/speed      6
     :class/strength   9
     :class/wisdom     15
@@ -479,8 +480,8 @@
     :class/health     30
     :class/power      40
     :class/canWalk    0x59DB
-    :class/maleIcon   26
-    :class/femaleIcon 27
+    :class/maleIcon   "art/magus.art26.bmp"
+    :class/femaleIcon "art/magus.art27.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_ELVENCLOAK}
@@ -488,7 +489,8 @@
                        {:inventory/code O_HEALINGSPELL}
                        {:inventory/code O_PHANTOMSPELL}
                        {:inventory/code O_SPEEDSPELL}]}
-   {:class/name       "Wizard"
+   {:class/id         :WIZARD
+    :class/name       "Wizard"
     :class/speed      4
     :class/strength   12
     :class/wisdom     12
@@ -496,8 +498,8 @@
     :class/health     50
     :class/power      50
     :class/canWalk    0x51CB
-    :class/maleIcon   23
-    :class/femaleIcon 31
+    :class/maleIcon   "art/magus.art23.bmp"
+    :class/femaleIcon "art/magus.art31.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_CLOAK}
@@ -505,7 +507,8 @@
                        {:inventory/code O_FIREBALLSPELL}
                        {:inventory/code O_TELEPORTSPELL}
                        {:inventory/code O_VISIONSPELL}]}
-   {:class/name       "Elf"
+   {:class/id         :ELF
+    :class/name       "Elf"
     :class/speed      6
     :class/strength   14
     :class/wisdom     0
@@ -513,12 +516,16 @@
     :class/health     90
     :class/power      0
     :class/canWalk    0x59DB
-    :class/maleIcon   116
-    :class/femaleIcon 117
+    :class/maleIcon   "art/magus.art116.bmp"
+    :class/femaleIcon "art/magus.art117.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
-    :class/inventory  [60 4 5 16]}
-   {:class/name       "Barbarian"
+    :class/inventory  [{:inventory/code O_ELVENCLOAK}
+                       {:inventory/code O_DAGGER}
+                       {:inventory/code O_BOW}
+                       {:inventory/code O_ARROWS}]}
+   {:class/id         :BARBARIAN
+    :class/name       "Barbarian"
     :class/speed      4
     :class/strength   17
     :class/wisdom     0
@@ -526,12 +533,16 @@
     :class/health     120
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   19
-    :class/femaleIcon 35
+    :class/maleIcon   "art/magus.art19.bmp"
+    :class/femaleIcon "art/magus.art35.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
-    :class/inventory  [45 17 5 16]}
-   {:class/name       "Knight"
+    :class/inventory  [{:inventory/code O_MACE}
+                       {:inventory/code O_STUDDEDLEATHER}
+                       {:inventory/code O_BOW}
+                       {:inventory/code O_ARROWS}]}
+   {:class/id         :KNIGHT
+    :class/name       "Knight"
     :class/speed      4
     :class/strength   24
     :class/wisdom     0
@@ -539,12 +550,16 @@
     :class/health     90
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   25
-    :class/femaleIcon 47
+    :class/maleIcon   "art/magus.art25.bmp"
+    :class/femaleIcon "art/magus.art47.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
-    :class/inventory  [1 18 11 10]}
-   {:class/name       "Duck"
+    :class/inventory  [{:inventory/code O_SWORD}
+                       {:inventory/code O_CHAINMAIL}
+                       {:inventory/code O_SHIELD}
+                       {:inventory/code O_HELMET}]}
+   {:class/id         :DUCK
+    :class/name       "Duck"
     :class/speed      5
     :class/strength   14
     :class/wisdom     0
@@ -552,8 +567,8 @@
     :class/health     100
     :class/power      0
     :class/canWalk    0x51DF
-    :class/maleIcon   108
-    :class/femaleIcon 108
+    :class/maleIcon   "art/magus.art108.bmp"
+    :class/femaleIcon "art/magus.art108.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_MACE}
@@ -561,7 +576,8 @@
                        {:inventory/code O_GLOVES}
                        {:inventory/code O_BOW}
                        {:inventory/code O_ARROWS}]}
-   {:class/name       "Dwarf"
+   {:class/id         :DWARF
+    :class/name       "Dwarf"
     :class/speed      4
     :class/strength   20
     :class/wisdom     0
@@ -569,12 +585,15 @@
     :class/health     120
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   126
-    :class/femaleIcon 174
+    :class/maleIcon   "art/magus.art126.bmp"
+    :class/femaleIcon "art/magus.art174.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
-    :class/inventory  [3 17 35]}
-   {:class/name       "Druid"
+    :class/inventory  [{:inventory/code O_AXE}
+                       {:inventory/code O_STUDDEDLEATHER}
+                       {:inventory/code O_GLOVES}]}
+   {:class/id         :DRUID
+    :class/name       "Druid"
     :class/speed      4
     :class/strength   14
     :class/wisdom     10
@@ -582,8 +601,8 @@
     :class/health     80
     :class/power      20
     :class/canWalk    0x51CB
-    :class/maleIcon   127
-    :class/femaleIcon 175
+    :class/maleIcon   "art/magus.art127.bmp"
+    :class/femaleIcon "art/magus.art175.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_CLOAK}
@@ -592,7 +611,8 @@
                        {:inventory/code O_AIRSPELL}
                        {:inventory/code O_WATERSPELL}
                        {:inventory/code O_EARTHSPELL}]}
-   {:class/name       "Duck mage"
+   {:class/id         :DUCK_MAGE
+    :class/name       "Duck mage"
     :class/speed      5
     :class/strength   10
     :class/wisdom     12
@@ -600,8 +620,8 @@
     :class/health     40
     :class/power      60
     :class/canWalk    0x51DF
-    :class/maleIcon   141
-    :class/femaleIcon 141
+    :class/maleIcon   "art/magus.art141.bmp"
+    :class/femaleIcon "art/magus.art141.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_CLOAK}
@@ -609,7 +629,8 @@
                        {:inventory/code O_CONFUSIONSPELL}
                        {:inventory/code O_CHAOSSPELL}
                        {:inventory/code O_FREEZESPELL}]}
-   {:class/name       "Orch"
+   {:class/id         :ORC_SOLDIER
+    :class/name       "Orc Soldier"
     :class/speed      4
     :class/strength   14
     :class/wisdom     0
@@ -617,12 +638,14 @@
     :class/health     50
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   42
-    :class/femaleIcon 42
+    :class/maleIcon   "art/magus.art42.bmp"
+    :class/femaleIcon "art/magus.art42.bmp"
     :class/lifeSpan   0
     :class/rank       40
-    :class/inventory  [12 37]}
-   {:class/name       "Orch"
+    :class/inventory  [{:inventory/code O_LEATHER}
+                       {:inventory/code O_CUTLASS}]}
+   {:class/id         :ORC_KNIGHT
+    :class/name       "Orc Knight"
     :class/speed      4
     :class/strength   15
     :class/wisdom     0
@@ -630,12 +653,15 @@
     :class/health     60
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   43
-    :class/femaleIcon 43
+    :class/maleIcon   "art/magus.art43.bmp"
+    :class/femaleIcon "art/magus.art43.bmp"
     :class/lifeSpan   0
     :class/rank       80
-    :class/inventory  [18 3 11]}
-   {:class/name       "Orch"
+    :class/inventory  [{:inventory/code O_CHAINMAIL}
+                       {:inventory/code O_AXE}
+                       {:inventory/code O_SHIELD}]}
+   {:class/id         :ORC_WIZARD
+    :class/name       "Orc Wizard"
     :class/speed      4
     :class/strength   12
     :class/wisdom     12
@@ -643,12 +669,17 @@
     :class/health     40
     :class/power      20
     :class/canWalk    0x51CB
-    :class/maleIcon   44
-    :class/femaleIcon 44
+    :class/maleIcon   "art/magus.art44.bmp"
+    :class/femaleIcon "art/magus.art44.bmp"
     :class/lifeSpan   0
     :class/rank       80
-    :class/inventory  [20 30 26 27 37]}
-   {:class/name       "ChaosKnight"
+    :class/inventory  [{:inventory/code O_FIREBALLSPELL}
+                       {:inventory/code O_SLEEPSPELL}
+                       {:inventory/code O_SKELETONSPELL}
+                       {:inventory/code O_ZOMBIESPELL}
+                       {:inventory/code O_CUTLASS}]}
+   {:class/id         :CHAOS_KNIGHT
+    :class/name       "ChaosKnight"
     :class/speed      4
     :class/strength   22
     :class/wisdom     0
@@ -656,12 +687,16 @@
     :class/health     100
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   36
-    :class/femaleIcon 36
+    :class/maleIcon   "art/magus.art36.bmp"
+    :class/femaleIcon "art/magus.art36.bmp"
     :class/lifeSpan   0
     :class/rank       100
-    :class/inventory  [43 13 2 35]}
-   {:class/name       "Spirit"
+    :class/inventory  [{:inventory/code O_LARGEHELMET}
+                       {:inventory/code O_ARMOR}
+                       {:inventory/code O_TWOHANDEDSWORD}
+                       {:inventory/code O_GLOVES}]}
+   {:class/id         :SPIRIT
+    :class/name       "Spirit"
     :class/speed      5
     :class/strength   50
     :class/wisdom     15
@@ -669,14 +704,15 @@
     :class/health     40
     :class/power      10
     :class/canWalk    0x7FFF
-    :class/maleIcon   24
-    :class/femaleIcon 24
+    :class/maleIcon   "art/magus.art24.bmp"
+    :class/femaleIcon "art/magus.art24.bmp"
     :class/lifeSpan   0
     :class/rank       120
     :class/inventory  [{:inventory/code O_CHAOSSPELL :inventory/droppable? true}
                        {:inventory/code O_GHOSTBLADE :inventory/droppable? true}
                        {:inventory/code O_SLEEPSPELL :inventory/droppable? true}]}
-   {:class/name       "Ghost"
+   {:class/id         :GHOST
+    :class/name       "Ghost"
     :class/speed      4
     :class/strength   10
     :class/wisdom     10
@@ -684,13 +720,14 @@
     :class/health     20
     :class/power      10
     :class/canWalk    0x7FFF
-    :class/maleIcon   33
-    :class/femaleIcon 33
+    :class/maleIcon   "art/magus.art33.bmp"
+    :class/femaleIcon "art/magus.art33.bmp"
     :class/lifeSpan   0
     :class/rank       100
     :class/inventory  [{:inventory/code O_CONFUSIONSPELL :inventory/droppable? true}
                        {:inventory/code O_CHAINANDBALL :inventory/droppable? true}]}
-   {:class/name       "DeathKnight"
+   {:class/id         :DEATH_KNIGHT
+    :class/name       "DeathKnight"
     :class/speed      4
     :class/strength   40
     :class/wisdom     20
@@ -698,12 +735,19 @@
     :class/health     200
     :class/power      20
     :class/canWalk    0x51CB
-    :class/maleIcon   37
-    :class/femaleIcon 37
+    :class/maleIcon   "art/magus.art37.bmp"
+    :class/femaleIcon "art/magus.art37.bmp"
     :class/lifeSpan   0
     :class/rank       170
-    :class/inventory  [42 3 13 10 20 35 75]}
-   {:class/name       "Skeleton"
+    :class/inventory  [{:inventory/code O_LARGESHIELD}
+                       {:inventory/code O_AXE}
+                       {:inventory/code O_ARMOR}
+                       {:inventory/code O_HELMET}
+                       {:inventory/code O_FIREBALLSPELL}
+                       {:inventory/code O_GLOVES}
+                       {:inventory/code O_NEGATOR}]}
+   {:class/id         :SKELETON
+    :class/name       "Skeleton"
     :class/speed      4
     :class/strength   7
     :class/wisdom     0
@@ -711,12 +755,13 @@
     :class/health     30
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   32
-    :class/femaleIcon 32
+    :class/maleIcon   "art/magus.art32.bmp"
+    :class/femaleIcon "art/magus.art32.bmp"
     :class/lifeSpan   0
     :class/rank       0
     :class/inventory  [{:inventory/code O_CHAINANDBALL}]}
-   {:class/name       "Zombie"
+   {:class/id         :ZOMBIE
+    :class/name       "Zombie"
     :class/speed      4
     :class/strength   12
     :class/wisdom     0
@@ -724,12 +769,13 @@
     :class/health     10
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   20
-    :class/femaleIcon 20
+    :class/maleIcon   "art/magus.art20.bmp"
+    :class/femaleIcon "art/magus.art20.bmp"
     :class/lifeSpan   0
     :class/rank       0
     :class/inventory  [{:inventory/code O_CUTLASS}]}
-   {:class/name       "Djinn"
+   {:class/id         :DJINN
+    :class/name       "Djinn"
     :class/speed      14
     :class/strength   1
     :class/wisdom     0
@@ -737,12 +783,13 @@
     :class/health     1
     :class/power      0
     :class/canWalk    0x51DF
-    :class/maleIcon   18
-    :class/femaleIcon 18
+    :class/maleIcon   "art/magus.art18.bmp"
+    :class/femaleIcon "art/magus.art18.bmp"
     :class/lifeSpan   8
     :class/rank       PERSISTENT
     :class/inventory  []}
-   {:class/name       "Fenix"
+   {:class/id         :FENIX
+    :class/name       "Fenix"
     :class/speed      5
     :class/strength   10
     :class/wisdom     19
@@ -750,12 +797,13 @@
     :class/health     40
     :class/power      5
     :class/canWalk    0x51C3
-    :class/maleIcon   34
-    :class/femaleIcon 34
+    :class/maleIcon   "art/magus.art34.bmp"
+    :class/femaleIcon "art/magus.art34.bmp"
     :class/lifeSpan   2
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_FIREBLADE :inventory/droppable? true}]}
-   {:class/name       "Undine"
+   {:class/id         :UNDINE
+    :class/name       "Undine"
     :class/speed      6
     :class/strength   20
     :class/wisdom     0
@@ -763,12 +811,13 @@
     :class/health     30
     :class/power      0
     :class/canWalk    0x51DF
-    :class/maleIcon   29
-    :class/femaleIcon 29
+    :class/maleIcon   "art/magus.art29.bmp"
+    :class/femaleIcon "art/magus.art29.bmp"
     :class/lifeSpan   6
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_CUTLASS :inventory/droppable? true}]}
-   {:class/name       "Golem"
+   {:class/id         :GOLEM
+    :class/name       "Golem"
     :class/speed      3
     :class/strength   60
     :class/wisdom     0
@@ -776,12 +825,13 @@
     :class/health     80
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   40
-    :class/femaleIcon 40
+    :class/maleIcon   "art/magus.art40.bmp"
+    :class/femaleIcon "art/magus.art40.bmp"
     :class/lifeSpan   5
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_STONEAXE :inventory/droppable? true}]}
-   {:class/name       "Demon"
+   {:class/id         :DEMON
+    :class/name       "Demon"
     :class/speed      6
     :class/strength   50
     :class/wisdom     10
@@ -789,13 +839,14 @@
     :class/health     200
     :class/power      20
     :class/canWalk    0x7FFF
-    :class/maleIcon   39
-    :class/femaleIcon 39
+    :class/maleIcon   "art/magus.art39.bmp"
+    :class/femaleIcon "art/magus.art39.bmp"
     :class/lifeSpan   9
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_FIREBALLSPELL :inventory/droppable? true}
                        {:inventory/code O_FIREBLADE :inventory/droppable? true}]}
-   {:class/name       "Sorcerer"
+   {:class/id         :SORCERER
+    :class/name       "Sorcerer"
     :class/speed      5
     :class/strength   25
     :class/wisdom     20
@@ -803,8 +854,8 @@
     :class/health     150
     :class/power      150
     :class/canWalk    0x51CB
-    :class/maleIcon   41
-    :class/femaleIcon 41
+    :class/maleIcon   "art/magus.art41.bmp"
+    :class/femaleIcon "art/magus.art41.bmp"
     :class/lifeSpan   0
     :class/rank       120
     :class/inventory  [{:inventory/code O_CHAINMAIL}
@@ -817,7 +868,8 @@
                        {:inventory/code O_TWOHANDEDSWORD}
                        {:inventory/code O_NEGATOR}
                        {:inventory/code O_FREEZESPELL}]}
-   {:class/name       "Hobgoblin"
+   {:class/id         :HOBGOBLIN
+    :class/name       "Hobgoblin"
     :class/speed      5
     :class/strength   10
     :class/wisdom     0
@@ -825,12 +877,16 @@
     :class/health     10
     :class/power      0
     :class/canWalk    0x59DB
-    :class/maleIcon   115
-    :class/femaleIcon 115
+    :class/maleIcon   "art/magus.art115.bmp"
+    :class/femaleIcon "art/magus.art115.bmp"
     :class/lifeSpan   0
     :class/rank       10
-    :class/inventory  [7 4 4 41]}
-   {:class/name       "Minotaur"
+    :class/inventory  [{:inventory/code O_THROWINGSTAR}
+                       {:inventory/code O_DAGGER}
+                       {:inventory/code O_DAGGER}
+                       {:inventory/code O_CLOAK}]}
+   {:class/id         :MINOTAUR
+    :class/name       "Minotaur"
     :class/speed      4
     :class/strength   20
     :class/wisdom     0
@@ -838,12 +894,15 @@
     :class/health     80
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   109
-    :class/femaleIcon 109
+    :class/maleIcon   "art/magus.art109.bmp"
+    :class/femaleIcon "art/magus.art109.bmp"
     :class/lifeSpan   0
     :class/rank       100
-    :class/inventory  [17 45 42]}
-   {:class/name       "Witchlord"
+    :class/inventory  [{:inventory/code O_STUDDEDLEATHER}
+                       {:inventory/code O_MACE}
+                       {:inventory/code O_LARGESHIELD}]}
+   {:class/id         :WITCHLORD
+    :class/name       "Witchlord"
     :class/speed      5
     :class/strength   20
     :class/wisdom     20
@@ -851,8 +910,8 @@
     :class/health     100
     :class/power      100
     :class/canWalk    0x51CB
-    :class/maleIcon   118
-    :class/femaleIcon 118
+    :class/maleIcon   "art/magus.art118.bmp"
+    :class/femaleIcon "art/magus.art118.bmp"
     :class/lifeSpan   0
     :class/rank       140
     :class/inventory  [{:inventory/code O_LIGHTNINGSPELL}
@@ -863,7 +922,8 @@
                        {:inventory/code O_CONFUSIONSPELL}
                        {:inventory/code O_GREENRING}
                        {:inventory/code O_NEGATOR}]}
-   {:class/name       "Magician"
+   {:class/id         :MAGICIAN
+    :class/name       "Magician"
     :class/speed      4
     :class/strength   12
     :class/wisdom     10
@@ -871,12 +931,17 @@
     :class/health     50
     :class/power      30
     :class/canWalk    0x51CB
-    :class/maleIcon   22
-    :class/femaleIcon 22
+    :class/maleIcon   "art/magus.art22.bmp"
+    :class/femaleIcon "art/magus.art22.bmp"
     :class/lifeSpan   0
     :class/rank       50
-    :class/inventory  [6 36 8 41 16]}
-   {:class/name       "Shadowbeast"
+    :class/inventory  [{:inventory/code O_CROSSBOW}
+                       {:inventory/code O_DARKNESSSPELL}
+                       {:inventory/code O_CONFUSIONSPELL}
+                       {:inventory/code O_CLOAK}
+                       {:inventory/code O_ARROWS}]}
+   {:class/id         :SHADOWBEAST
+    :class/name       "Shadowbeast"
     :class/speed      5
     :class/strength   20
     :class/wisdom     0
@@ -884,12 +949,13 @@
     :class/health     200
     :class/power      0
     :class/canWalk    0x51DF
-    :class/maleIcon   28
-    :class/femaleIcon 28
+    :class/maleIcon   "art/magus.art28.bmp"
+    :class/femaleIcon "art/magus.art28.bmp"
     :class/lifeSpan   3
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_MACE :inventory/droppable? true}]}
-   {:class/name       "Lightning"
+   {:class/id         :LIGHTNING
+    :class/name       "Lightning"
     :class/speed      8
     :class/strength   4
     :class/wisdom     14
@@ -897,12 +963,13 @@
     :class/health     1
     :class/power      10
     :class/canWalk    0x51DF
-    :class/maleIcon   21
-    :class/femaleIcon 21
+    :class/maleIcon   "art/magus.art21.bmp"
+    :class/femaleIcon "art/magus.art21.bmp"
     :class/lifeSpan   1
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_CHOCKHAMMER :inventory/droppable? true}]}
-   {:class/name       "Undead"
+   {:class/id         :UNDEAD
+    :class/name       "Undead"
     :class/speed      5
     :class/strength   17
     :class/wisdom     16
@@ -910,12 +977,18 @@
     :class/health     70
     :class/power      15
     :class/canWalk    0x51CB
-    :class/maleIcon   38
-    :class/femaleIcon 38
+    :class/maleIcon   "art/magus.art38.bmp"
+    :class/femaleIcon "art/magus.art38.bmp"
     :class/lifeSpan   0
     :class/rank       100
-    :class/inventory  [20 27 45 17 15 26]}
-   {:class/name       "Troll"
+    :class/inventory  [{:inventory/code O_FIREBALLSPELL}
+                       {:inventory/code O_ZOMBIESPELL}
+                       {:inventory/code O_MACE}
+                       {:inventory/code O_STUDDEDLEATHER}
+                       {:inventory/code O_GREENRING}
+                       {:inventory/code O_SKELETONSPELL}]}
+   {:class/id         :TROLL
+    :class/name       "Troll"
     :class/speed      3
     :class/strength   20
     :class/wisdom     0
@@ -923,12 +996,13 @@
     :class/health     100
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   17
-    :class/femaleIcon 17
+    :class/maleIcon   "art/magus.art17.bmp"
+    :class/femaleIcon "art/magus.art17.bmp"
     :class/lifeSpan   0
     :class/rank       20
     :class/inventory  [{:inventory/code O_STONEAXE}]}
-   {:class/name       "Monk"
+   {:class/id         :MONK
+    :class/name       "Monk"
     :class/speed      4
     :class/strength   14
     :class/wisdom     11
@@ -936,12 +1010,18 @@
     :class/health     60
     :class/power      20
     :class/canWalk    0x51CB
-    :class/maleIcon   125
-    :class/femaleIcon 125
+    :class/maleIcon   "art/magus.art125.bmp"
+    :class/femaleIcon "art/magus.art125.bmp"
     :class/lifeSpan   0
     :class/rank       60
-    :class/inventory  [12 38 25 24 78 23]}
-   {:class/name       "Goblin"
+    :class/inventory  [{:inventory/code O_LEATHER}
+                       {:inventory/code O_STAFF}
+                       {:inventory/code O_EARTHSPELL}
+                       {:inventory/code O_WATERSPELL}
+                       {:inventory/code O_SLOWSPELL}
+                       {:inventory/code O_FIRESPELL}]}
+   {:class/id         :GOBLIN
+    :class/name       "Goblin"
     :class/speed      4
     :class/strength   8
     :class/wisdom     0
@@ -949,13 +1029,14 @@
     :class/health     30
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   128
-    :class/femaleIcon 128
+    :class/maleIcon   "art/magus.art128.bmp"
+    :class/femaleIcon "art/magus.art128.bmp"
     :class/lifeSpan   0
     :class/rank       10
     :class/inventory  [{:inventory/code O_SWORD}
                        {:inventory/code O_LEATHER}]}
-   {:class/name       "Warrior"
+   {:class/id         :WARRIOR
+    :class/name       "Warrior"
     :class/speed      4
     :class/strength   12
     :class/wisdom     0
@@ -963,13 +1044,14 @@
     :class/health     80
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   135
-    :class/femaleIcon 135
+    :class/maleIcon   "art/magus.art135.bmp"
+    :class/femaleIcon "art/magus.art135.bmp"
     :class/lifeSpan   0
     :class/rank       60
     :class/inventory  [{:inventory/code O_MACE}
                        {:inventory/code O_CHAINMAIL} 7 7 7]}
-   {:class/name       "ChaosWarrior"
+   {:class/id         :CHAOS_WARRIOR
+    :class/name       "ChaosWarrior"
     :class/speed      4
     :class/strength   30
     :class/wisdom     0
@@ -977,8 +1059,8 @@
     :class/health     300
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   136
-    :class/femaleIcon 136
+    :class/maleIcon   "art/magus.art136.bmp"
+    :class/femaleIcon "art/magus.art136.bmp"
     :class/lifeSpan   0
     :class/rank       200
     :class/inventory  [{:inventory/code O_LARGEHELMET}
@@ -986,7 +1068,8 @@
                        {:inventory/code O_GLOVES}
                        {:inventory/code O_ARMOR}
                        {:inventory/code O_CLOAK}]}
-   {:class/name       "DemonPrince"
+   {:class/id         :DEMON_PRINCE
+    :class/name       "DemonPrince"
     :class/speed      6
     :class/strength   30
     :class/wisdom     0
@@ -994,8 +1077,8 @@
     :class/health     500
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   137
-    :class/femaleIcon 137
+    :class/maleIcon   "art/magus.art137.bmp"
+    :class/femaleIcon "art/magus.art137.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_GOLDENARMOR}
@@ -1006,7 +1089,8 @@
                        {:inventory/code O_NEGATOR}
                        {:inventory/code O_GREENRING}
                        {:inventory/code O_GHOSTBLADE}]}
-   {:class/name       "Orch"
+   {:class/id         :ORC_ARCHER
+    :class/name       "Orc Archer"
     :class/speed      4
     :class/strength   13
     :class/wisdom     0
@@ -1014,13 +1098,14 @@
     :class/health     50
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   30
-    :class/femaleIcon 30
+    :class/maleIcon   "art/magus.art30.bmp"
+    :class/femaleIcon "art/magus.art30.bmp"
     :class/lifeSpan   0
     :class/rank       40
     :class/inventory  [{:inventory/code O_BOW}
                        {:inventory/code O_ARROWS}]}
-   {:class/name       "Guardian"
+   {:class/id         :GUARDIAN
+    :class/name       "Guardian"
     :class/speed      5
     :class/strength   22
     :class/wisdom     0
@@ -1028,8 +1113,8 @@
     :class/health     200
     :class/power      0
     :class/canWalk    0x51CB
-    :class/maleIcon   155
-    :class/femaleIcon 155
+    :class/maleIcon   "art/magus.art155.bmp"
+    :class/femaleIcon "art/magus.art155.bmp"
     :class/lifeSpan   0
     :class/rank       200
     :class/inventory  [{:inventory/code O_SILVERBOW}
@@ -1038,7 +1123,8 @@
                        {:inventory/code O_GLOVES}
                        {:inventory/code O_FAITHFULARROW}
                        {:inventory/code O_TWOHANDEDSWORD}]}
-   {:class/name       "Dragon"
+   {:class/id         :DRAGON
+    :class/name       "Dragon"
     :class/speed      8
     :class/strength   60
     :class/wisdom     25
@@ -1046,8 +1132,8 @@
     :class/health     600
     :class/power      300
     :class/canWalk    0x51DF
-    :class/maleIcon   156
-    :class/femaleIcon 156
+    :class/maleIcon   "art/magus.art156.bmp"
+    :class/femaleIcon "art/magus.art156.bmp"
     :class/lifeSpan   0
     :class/rank       250
     :class/inventory  [{:inventory/code O_INFERNOSPELL :inventory/droppable? true}
@@ -1056,7 +1142,8 @@
                        {:inventory/code O_GOLDENARMOR :inventory/droppable? true}
                        {:inventory/code O_NEGATOR :inventory/droppable? true}
                        {:inventory/code O_GREENRING :inventory/droppable? true}]}
-   {:class/name       "DeathLord"
+   {:class/id         :DEATH_LORD
+    :class/name       "DeathLord"
     :class/speed      5
     :class/strength   25
     :class/wisdom     20
@@ -1064,8 +1151,8 @@
     :class/health     200
     :class/power      100
     :class/canWalk    0x7FFF
-    :class/maleIcon   113
-    :class/femaleIcon 113
+    :class/maleIcon   "art/magus.art113.bmp"
+    :class/femaleIcon "art/magus.art113.bmp"
     :class/lifeSpan   0
     :class/rank       230
     :class/inventory  [{:inventory/code O_LARGEHELMET}
@@ -1074,7 +1161,8 @@
                        {:inventory/code O_LIGHTNINGSPELL}
                        {:inventory/code O_SLAYERSWORD}
                        {:inventory/code O_DEMONSPELL}]}
-   {:class/name       "The Dark One"
+   {:class/id         :THE_DARK_ONE
+    :class/name       "The Dark One"
     :class/speed      7
     :class/strength   80
     :class/wisdom     25
@@ -1082,8 +1170,8 @@
     :class/health     500
     :class/power      1000
     :class/canWalk    0x7FFF
-    :class/maleIcon   105
-    :class/femaleIcon 105
+    :class/maleIcon   "art/magus.art105.bmp"
+    :class/femaleIcon "art/magus.art105.bmp"
     :class/lifeSpan   0
     :class/rank       PERSISTENT
     :class/inventory  [{:inventory/code O_GOLDENARMOR}
@@ -1096,7 +1184,8 @@
                        {:inventory/code O_DEMONSPELL}
                        {:inventory/code O_INFERNOSPELL}
                        {:inventory/code O_CHAOSSPELL}]}
-   {:class/name       "Small one"
+   {:class/id         :SMALL_ONE
+    :class/name       "Small one"
     :class/speed      8
     :class/strength   5
     :class/wisdom     0
@@ -1104,8 +1193,8 @@
     :class/health     10
     :class/power      0
     :class/canWalk    0x59DB
-    :class/maleIcon   45
-    :class/femaleIcon 46
+    :class/maleIcon   "art/magus.art45.bmp"
+    :class/femaleIcon "art/magus.art46.bmp"
     :class/lifeSpan   0
     :class/rank       1200
     :class/inventory  []}])
