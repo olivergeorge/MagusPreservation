@@ -22,29 +22,29 @@
 ;};
 
 (def terrain-data
-  [[0x0001 "Land"]
-   [0x0006 "Stone slab"]
-   [0x0003 "Gravel"]
-   [0x0800 "Stone slab"]
-   [0x0109 "Grass"]
-   [0x0102 "Yellow flower"]
-   [0x0164 "Red flower"]
-   [0x0205 "Water"]
-   [0x0363 "Stones in water"]
-   [0x0462 "Marsh"]
-   [0x250C "Tree"]
-   [0x2565 "Palm tree"]
-   [0x060A "Sand"]
-   [0x270F "Gate"]
-   [0x0804 "Wooden floor"]
-   [0x000D "Planks"]
-   [0x2907 "Stone wall"]
-   [0x2908 "Brick wall"]
-   [0x2A10 "Mountain"]
-   [0x2B0E "Bush"]
-   [0x2D0B "Wooden wall"]
-   [0x2C70 "Door"]
-   [0x0E3E "Portal"]])
+  [{:terrain/id :LAND :terrain/code 0x0001 :terrain/desc "Land"}
+   {:terrain/id :STONE_SLAB :terrain/code 0x0006 :terrain/desc "Stone slab"}
+   {:terrain/id :GRAVEL :terrain/code 0x0003 :terrain/desc "Gravel"}
+   {:terrain/id :STONE_SLAB :terrain/code 0x0800 :terrain/desc "Stone slab"}
+   {:terrain/id :GRASS :terrain/code 0x0109 :terrain/desc "Grass"}
+   {:terrain/id :YELLOW_FLOWER :terrain/code 0x0102 :terrain/desc "Yellow flower"}
+   {:terrain/id :RED_FLOWER :terrain/code 0x0164 :terrain/desc "Red flower"}
+   {:terrain/id :WATER :terrain/code 0x0205 :terrain/desc "Water"}
+   {:terrain/id :STONES_IN_WATER :terrain/code 0x0363 :terrain/desc "Stones in water"}
+   {:terrain/id :MARSH :terrain/code 0x0462 :terrain/desc "Marsh"}
+   {:terrain/id :TREE :terrain/code 0x250C :terrain/desc "Tree"}
+   {:terrain/id :PALM_TREE :terrain/code 0x2565 :terrain/desc "Palm tree"}
+   {:terrain/id :SAND :terrain/code 0x060A :terrain/desc "Sand"}
+   {:terrain/id :GATE :terrain/code 0x270F :terrain/desc "Gate"}
+   {:terrain/id :WOODEN_FLOOR :terrain/code 0x0804 :terrain/desc "Wooden floor"}
+   {:terrain/id :PLANKS :terrain/code 0x000D :terrain/desc "Planks"}
+   {:terrain/id :STONE_WALL :terrain/code 0x2907 :terrain/desc "Stone wall"}
+   {:terrain/id :BRICK_WALL :terrain/code 0x2908 :terrain/desc "Brick wall"}
+   {:terrain/id :MOUNTAIN :terrain/code 0x2A10 :terrain/desc "Mountain"}
+   {:terrain/id :BUSH :terrain/code 0x2B0E :terrain/desc "Bush"}
+   {:terrain/id :WOODEN_WALL :terrain/code 0x2D0B :terrain/desc "Wooden wall"}
+   {:terrain/id :DOOR :terrain/code 0x2C70 :terrain/desc "Door"}
+   {:terrain/id :PORTAL :terrain/code 0x0E3E :terrain/desc "Portal"}])
 
 ;
 ;void SaveMap( void )
