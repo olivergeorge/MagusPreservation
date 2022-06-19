@@ -326,6 +326,9 @@
 ;
 ;#define PERSISTENT 4711
 ;
+
+(def PERSISTENT 4711)
+
 ;struct class gClassData[ MAXCLASSES] =
 ;{
 ;  { "Shaman", 6, 9, 15, 7, 30, 40, 0x59DB, 26, 27, 0, PERSISTENT,
