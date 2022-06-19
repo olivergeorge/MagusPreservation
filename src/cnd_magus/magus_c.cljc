@@ -249,7 +249,21 @@
 ;	rank,
 ;	inventory[ MAXINVENTORY];
 ;};
-;
+
+(s/def :class/name string?)
+(s/def :class/speed int?)
+(s/def :class/strength int?)
+(s/def :class/wisdom int?)
+(s/def :class/skill int?)
+(s/def :class/health int?)
+(s/def :class/power int?)
+(s/def :class/canWalk int?)
+(s/def :class/maleIcon int?)
+(s/def :class/femaleIcon int?)
+(s/def :class/lifeSpan int?)
+(s/def :class/rank int?)
+(s/def :class/inventory coll?)
+
 ;#define MAXLEVEL 11
 ;
 ;char *gLevelNames[ MAXLEVEL+1] =
