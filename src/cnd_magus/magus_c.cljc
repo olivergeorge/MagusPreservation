@@ -1339,7 +1339,7 @@
 (s/def :character/isNasty boolean?)
 (s/def :character/isTracker boolean?)
 (s/def :character/isFooled boolean?)
-(s/def :character/gifts any?)
+(s/def :character/gifts int?)                               ; total price gifted
 (s/def :character/slayer any?)
 (s/def :character/opponents any?)
 
