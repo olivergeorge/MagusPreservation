@@ -1238,7 +1238,15 @@
 ;  else
 ;    return FALSE;
 ;}
-;
+
+(defn InBox
+  [x y left top right bottom]
+  (boolean (and (>= x left) (< x right) (>= y top) (< y bottom))))
+
+(defn can-walk-on-terrain?
+  [canWalk terrain-code]
+  (not= 0 (bit-and canWalk (bit-shift-left 1 (bit-and (bit-shift-right terrain-code 8) 31)))))
+
 ;int Treadable( int x, int y, long c )
 ;{
 ;  if (!InBox( x, y, 0, 0, WORLD_X_MAX, WORLD_Y_MAX)) return FALSE;
