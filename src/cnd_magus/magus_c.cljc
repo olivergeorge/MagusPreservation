@@ -1257,6 +1257,13 @@
 ;
 ;  return FALSE;
 ;}
+
+(defn Treadable
+  [gWorld x y c]
+  (and (not (InBox x y 0 0 WORLD_X_MAX WORLD_Y_MAX))
+       (not (bit-and (get-in gWorld [x y]) CHARACTER_FLAG))
+       (bit-and c (bit-shift-left 1 (bit-and (bit-shift-right (get-in gWorld [x y]) 8) 31)))))
+
 ;
 ;/*
 ;---------------------------------------
@@ -1341,16 +1348,16 @@
 ;
 ;typedef struct character Person;
 
-(s/def ::person ::character)
+;(s/def ::person ::character)
 
 ;
 ;Person *gCharacters, *gPC;
 ;Person *gDarkMaster, *gLastDrawn;
 
 
-(s/def :game/characters (s/coll-of ::person))
-(s/def :game/dark-master ::person)
-(s/def :game/last-drawn ::person)
+;(s/def :game/characters (s/coll-of ::person))
+;(s/def :game/dark-master ::person)
+;(s/def :game/last-drawn ::person)
 
 
 ;
